@@ -191,10 +191,15 @@ public class Main {
         }
 
         System.out.println("\n--- AKHIRI SEWA #" + sewaAktif.getIdSewa() + " (" + sewaAktif.getEBike().getMerk() + ") ---");
-        System.out.print("Masukkan durasi sewa (dalam menit, misal 30): ");
-        int durasiInput = bacaInt();
-        if (durasiInput <= 0) {
-            durasiInput = 1;
+        int durasiInput;
+        while (true) {
+            System.out.print("Masukkan durasi sewa (minimal 15 menit, misal 30): ");
+            durasiInput = bacaInt();
+            if (durasiInput < 15) {
+                System.out.println("Durasi sewa minimal adalah 15 menit! Silakan masukkan kembali.");
+            } else {
+                break;
+            }
         }
 
         // Set waktuMulai & waktuSelesai sesuai durasi agar hitungDurasi() menghitung akurat

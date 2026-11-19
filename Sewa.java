@@ -52,9 +52,7 @@ public class Sewa {
     public int hitungDurasi() {
         if (waktuMulai != null && waktuSelesai != null) {
             long menit = Duration.between(waktuMulai, waktuSelesai).toMinutes();
-            if (menit > 0) {
-                this.durasiMenit = (int) menit;
-            }
+            this.durasiMenit = Math.max(15, (int) menit); 
         }
         return this.durasiMenit;
     }
